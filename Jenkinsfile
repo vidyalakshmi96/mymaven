@@ -1,15 +1,12 @@
 node('master') 
 {
-    stage('ConDownload')
+    stage('ConDownload_loans')
     {
         git 'https://github.com/intelliqittrainings/maven.git'
     }
-    stage('ConBuild')
+    stage('ConBuild_loans')
     {
         sh label: '', script: 'mvn package'  
     }
-    stage('Condeploy')
-    {
-        sh label: '', script: 'scp /var/lib/jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war ubuntu@172.31.1.172:/var/lib/tomcat8/webapps/testapp.war'
-    }
+
 }
